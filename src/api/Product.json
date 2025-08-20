@@ -1,0 +1,175 @@
+[
+  {
+    "id": 1,
+    "ProductCategory": "Nutrition",
+    "ProductRating": 4.5,
+    "ProductName": "Dietary supplements <br /> Health Products",
+    "ProductPrice": "$80.00",
+    "ProductImage": "product-1.png",
+    "ProductDiscountPrice": "$64.00",
+    "ProductDiscount": true,
+    "BestdealsProduct": true
+  },
+  {
+    "id": 2,
+    "ProductCategory": "Healthcare",
+    "ProductRating": 4.5,
+    "ProductName": "Nitrile disposable <br /> gloves 100",
+    "ProductPrice": "$140.00",
+    "ProductImage": "product-2.png",
+    "ProductDiscount": false,
+    "BestdealsProduct": true
+  },
+  {
+    "id": 3,
+    "ProductCategory": "Wellness",
+    "ProductRating": 4.5,
+    "ProductName": "Womens multi <br /> Vitamins A, Biotin - cranberry",
+    "ProductPrice": "$80.00",
+    "ProductImage": "product-3.png",
+    "ProductDiscount": false,
+    "BestdealsProduct": true
+  },
+  {
+    "id": 4,
+    "ProductCategory": "Hygiene",
+    "ProductRating": 4.5,
+    "ProductName": "Antibacterial liquid <br /> Antibacterial liquid",
+    "ProductPrice": "$15.00",
+    "ProductImage": "product-4.png",
+    "ProductDiscountPrice": "$80.00",
+    "ProductDiscount": true,
+    "BestdealsProduct": true
+  },
+  {
+    "id": 5,
+    "ProductCategory": "Vitamins",
+    "ProductRating": 4.5,
+    "ProductName": "Gencell collegen peptides + <br /> Biotin & Vitamins C",
+    "ProductImage": "product-logo-1.png",
+    "ProductPrice": "$80.00",
+    "ProductDiscountPrice": "$64.00",
+    "ProductDiscount": true,
+    "deparment": "Cardiology",
+    "TrendingProducts": true
+  },
+  {
+    "id": 6,
+    "ProductCategory": "Healthcare",
+    "ProductRating": 4.5,
+    "ProductName": "Natures Bounty <br /> D3 10000",
+    "ProductImage": "product-logo-2.png",
+    "ProductPrice": "$140.00",
+    "ProductDiscount": false,
+    "deparment": "Neurology",
+    "TrendingProducts": true
+  },
+  {
+    "id": 7,
+    "ProductCategory": "Wellness",
+    "ProductRating": 4.5,
+    "ProductName": "Vitamins <br /> 1000 IU High Potency",
+    "ProductImage": "product-logo-3.png",
+    "ProductPrice": "$64.00",
+    "TrendingProducts": true,
+    "deparment": "Pediatrics",
+    "ProductDiscount": false
+  },
+  {
+    "id": 8,
+    "ProductCategory": "Vitamins",
+    "ProductRating": 4.5,
+    "ProductName": "Physicians Daily <br /> Multivitamin + D3",
+    "ProductImage": "product-logo-4.png",
+    "ProductPrice": "$80.00",
+    "ProductDiscount": false,
+    "deparment": "Gastronerology",
+    "TrendingProducts": true
+  },
+  {
+    "id": 9,
+    "ProductCategory": "Accessrious",
+    "ProductRating": 4.5,
+    "ProductName": "Savlon liquid <br /> Antiseptic 1Litre",
+    "ProductImage": "product-logo-5.png",
+    "ProductPrice": "$18.00",
+    "ProductDiscountPrice": "$15.00",
+    "ProductDiscount": true,
+    "deparment": "Nephrology",
+    "TrendingProducts": true
+  },
+  {
+    "id": 10,
+    "ProductCategory": "Powder",
+    "ProductRating": 4.5,
+    "ProductName": "ProtenixVanilla Delight <br /> Nutritional Drink mix",
+    "ProductImage": "product-logo-6.png",
+    "ProductPrice": "$140.00",
+    "ProductDiscount": false,
+    "deparment": "Gynocology",
+    "TrendingProducts": true
+  },
+  {
+    "id": 11,
+    "ProductCategory": "Wellness",
+    "ProductRating": 4.5,
+    "ProductName": "Zerochal Sachet 25 ",
+    "ProductImage": "product-logo-7.png",
+    "ProductPrice": "$80.00",
+    "ProductDiscountPrice": "$64.00",
+    "ProductDiscount": true,
+    "deparment": "Orthopedics",
+    "TrendingProducts": true
+  },
+  {
+    "id": 12,
+    "ProductCategory": "Diaper",
+    "ProductRating": 4.5,
+    "ProductName": "Twinkle baby Diaper <br /> Extra large 23pc",
+    "ProductImage": "product-logo-8.png",
+    "ProductPrice": "$80.00",
+    "ProductDiscount": false,
+    "deparment": "Urology",
+    "TrendingProducts": true
+  },
+  {
+    "id": 13,
+    "ProductCategory": "Nutrition",
+    "ProductRating": 4.5,
+    "ProductName": "Molfix baby <br /> Diaper 4pcs",
+    "ProductImage": "image-1-removebg-preview.png",
+    "ProductPrice": "$80.00",
+    "ProductDiscountPrice": "$64.00",
+    "ProductDiscount": true,
+    "BabyFoodProducts": true
+  },
+  {
+    "id": 14,
+    "ProductCategory": "Wellness",
+    "ProductRating": 4.5,
+    "ProductName": "Medittirian fruits",
+    "ProductImage": "image-2-removebg-preview.png",
+    "ProductPrice": "$40.00",
+    "BabyFoodProducts": true
+  },
+  {
+    "id": 15,
+    "ProductCategory": "Medicine",
+    "ProductRating": 4.5,
+    "ProductName": "Womens multi <br /> Vitamins A, Biotin - cranberry",
+    "ProductImage": "image-removebg-preview.png",
+    "ProductPrice": "$80.00",
+    "ProductDiscountPrice": "$64.00",
+    "ProductDiscount": true,
+    "BabyFoodProducts": true
+  },
+  {
+    "id": 16,
+    "ProductCategory": "Healthcare",
+    "ProductRating": 4.5,
+    "ProductName": "Bebelac premature <br /> Milk formula",
+    "ProductImage": "image-4-removebg-preview.png",
+    "ProductPrice": "$80.00",
+    "BabyFoodProducts": true
+  }
+]
