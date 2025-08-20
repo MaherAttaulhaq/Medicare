@@ -30,7 +30,6 @@ export const Header = () => {
   const cart = useSelector((store) => store.cart.items);
   useEffect(() => {
     let total = 0;
-    console.log("Cart items:", cart);
     cart.forEach((item) => {
       total += item.quantity;
     });
