@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Applayout from "./components/layout/Applayout";
-import { ErrorPage } from "./components/pages/Errorpage";
+import  ErrorPage  from "./components/pages/ErrorPage";
 import { Home } from "./components/pages/Home";
 import { Offers } from "./components/pages/Offers";
 import { Cart } from "./components/pages/Cart";
