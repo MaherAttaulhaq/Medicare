@@ -7,7 +7,7 @@ import { Offers } from "./components/pages/Offers";
 import { Cart } from "./components/pages/Cart";
 import { Login } from "./components/pages/Login";
 import { Provider } from "react-redux";
-import { signup } from "./components/pages/signup";
+import { Signup } from "./components/pages/Signup";
 import store from "./store/store";
 const router = createBrowserRouter([
   {
