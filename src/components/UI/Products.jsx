@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
@@ -8,8 +8,23 @@ import { GoUpload } from "react-icons/go";
 import ProductsData from "../../api/Product.json";
 import { useSelector, useDispatch } from "react-redux";
 import { addtocart } from "../../store/CartSlice";
+import appwriteService from "../../appwrite/config";
 import store from "../../store/store";
+import { Query } from "appwrite";
 export const Products = () => {
+  const [products, setProducts] = useState([]);
+  const getProducts = async (filter) => {
+    const products = await appwriteService.getProducts(filter);
+    if (products) {
+      setProducts(products.documents);
+    }
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      await getProducts([Query.equal("bestdealsProduct", true)]);
+    };
+    fetchData();
+  }, []);
   const cart = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
   const handleAddTocart = (id, quantity) => {
@@ -34,9 +49,9 @@ export const Products = () => {
 
         <div className="mt-10 flex flex-wrap justify-center items-center gap-6 md:gap-12 products">
           {/* // cards-section */}
-          {ProductsData.map(
+          {products.map(
             (product, index) =>
-              product.BestdealsProduct && (
+              product.bestdealsProduct && (
                 <div
                   key={index}
                   className="bg-gray-300 border relative border-gray-300 w-72 md:w-64 rounded-2xl"
@@ -44,22 +59,22 @@ export const Products = () => {
                   <div className="flex justify-center items-center w-full h-60">
                     <img
                       className="w-32 h-32"
-                      src={`/images/${product.ProductImage}`}
+                      src={`/images/${product.image}`}
                       alt="product photo"
                     />
                   </div>
                   <div className="bg-white rounded-2xl px-2 pb-3">
                     <div className="flex justify-between items-center py-2">
                       <h1 className="text-black font-extralight tracking-wide">
-                        {product.ProductCategory}
+                        {product.category}
                       </h1>
                       <div className="flex items-center text-sm text-orange-600">
                         <FaStar className="mr-1" />
-                        <span>{product.ProductRating}</span>
+                        <span>{product.rating}</span>
                       </div>
                     </div>
                     <p className="text-black font-semibold mt-1">
-                      {product.ProductName}
+                      {product.name}
                     </p>
                     <div className="flex justify-between items-center mt-3">
                       <button
@@ -70,18 +85,18 @@ export const Products = () => {
                         Add to Cart
                       </button>
                       <div className="flex flex-col items-end">
-                        {product.ProductDiscount ? (
+                        {product.discount ? (
                           <>
                             <p className="line-through text-sm font-light">
-                              {product.ProductPrice}
+                              {product.price}
                             </p>
                             <span className="font-bold">
-                              {product.ProductDiscountPrice}
+                              {product.discountPrice}
                             </span>
                           </>
                         ) : (
                           <p className="absolute top-4 right-0 bg-amber-300 text-black px-2 py-1 text-xs font-medium rounded-l-md">
-                            {product.ProductDiscount}
+                            {product.discount}
                           </p>
                         )}
                       </div>

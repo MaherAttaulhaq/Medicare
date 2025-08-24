@@ -1,62 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
+import authService from "../../appwrite/auth";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { login } from "../../store/authSlice";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
 
-export const Signup = () => {
+export function Signup() {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+
+  const create = async (data) => {
+    setError("");
+    try {
+      const userData = await authService.createAccount(data);
+      if (userData) {
+        const userData = await authService.getCurrentUser();
+        if (userData) dispatch(login(userData));
+        navigate("/");
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
-    <form>
-      <div className="flex items-center justify-center w-full">
-        <div
-          className={`mx-auto  max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
-        >
-          <div>
-            <h2 className="font-bold text-center">Create an Account</h2>
-          </div>
-          <div className="flex justify-center items-center">
-            <label htmlFor="username">Username:</label>
+    <div className="flex items-center justify-center">
+      <div
+        className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
+      >
+        <div className="mb-2 flex justify-center">
+          <span className="inline-block w-full max-w-[100px]">
+            <img width="100%" />
+          </span>
+        </div>
+        <h2 className="text-center text-2xl font-bold leading-tight">
+          Sign up to create account
+        </h2>
+        <p className="mt-2 text-center text-base text-black/60">
+          Already have an account?&nbsp;
+          <NavLink
+            to="/login"
+            className="font-medium text-primary transition-all duration-200 hover:underline"
+          >
+            Sign In
+          </NavLink>
+        </p>
+        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+
+        <form onSubmit={handleSubmit(create)}>
+          <div className="space-y-5">
             <input
-              type="text"
-              id="username"
-              name="username"
-              required
-              className="outline-none  border-blue-400 border-2 my-4"
+              label="Full Name: "
+              placeholder="Enter your full name"
+              {...register("name", {
+                required: true,
+              })}
             />
-          </div>
-          <div className="flex justify-center items-center">
-            <label htmlFor="email">Email:</label>
             <input
+              label="Email: "
+              placeholder="Enter your email"
               type="email"
-              id="email"
-              name="email"
-              required
-              className="outline-none  border-blue-400 border-2 my-4"
+              {...register("email", {
+                required: true,
+                validate: {
+                  matchPatern: (value) =>
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    "Email address must be a valid address",
+                },
+              })}
             />
-          </div>
-          <div className="flex justify-center items-center">
-            <label htmlFor="password">Password:</label>
             <input
+              label="Password: "
               type="password"
-              id="password"
-              name="password"
-              required
-              className="outline-none  border-blue-400 border-2 my-4"
+              placeholder="Enter your password"
+              {...register("password", {
+                required: true,
+              })}
             />
-          </div>
-          <div className="flex justify-center items-center">
-            <label htmlFor="confirm_password">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirm_password"
-              name="confirm_password"
-              required
-              className="outline-none  border-blue-400 border-2 my-4"
-            />
-          </div>
-          <div className="text-center">
-            <button type="submit" className="font-bold ">
-              Sign Up
+            <button type="submit" className="w-full">
+              Create Account
             </button>
           </div>
-        </div>
+        </form>
       </div>
-    </form>
+    </div>
   );
-};
+}

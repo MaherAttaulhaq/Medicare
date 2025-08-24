@@ -7,7 +7,10 @@ import { CiShoppingCart } from "react-icons/ci";
 import { TbLogin2 } from "react-icons/tb";
 import { CiLocationOn } from "react-icons/ci";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { LogoutBtn } from "./LogoutBtn";
 export const Header = () => {
+  const authStatus = useSelector((state) => state.auth.status);
   const [location, setlocation] = useState([
     {
       id: 1,
@@ -121,12 +124,16 @@ export const Header = () => {
             </NavLink>
 
             {/* Login */}
-            <NavLink to="/login">
-              <button className="flex items-center justify-center gap-1">
-                <TbLogin2 className="text-lg" />
-                <p className="text-sm md:text-base">Login</p>
-              </button>
-            </NavLink>
+            {authStatus ? (
+              <LogoutBtn />
+            ) : (
+              <NavLink to="/login">
+                <button className="flex items-center justify-center gap-1">
+                  <TbLogin2 className="text-lg" />
+                  <p className="text-sm md:text-base">Login</p>
+                </button>
+              </NavLink>
+            )}
           </div>
         </div>
       </div>
