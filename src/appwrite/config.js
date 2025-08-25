@@ -8,8 +8,8 @@ export class Service {
 
   constructor() {
     this.client
-      .setEndpoint(conf.appwriteUrl)
-      .setProject(conf.appwriteProjectId);
+    .setEndpoint(import.meta.env.PUBLIC_APPWRITE_URL)
+    .setProject(import.meta.env.PUBLIC_APPWRITE_PROJECT_ID);
     this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
   }
